@@ -61,6 +61,7 @@
       opacity: 0.7;
       animation: float 10s infinite ease-in-out;
       color: #ff69b4;
+      z-index: 5;
     }
 
     @keyframes float {
@@ -124,6 +125,30 @@
       }
     }
 
+    .center-hearts {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      z-index: 15;
+    }
+
+    .center-heart {
+      font-size: 2rem;
+      color: #ff69b4;
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
     @media (max-width: 768px) {
       .name {
         font-size: 4rem;
@@ -133,6 +158,9 @@
       }
       .greeting {
         font-size: 1.2rem;
+      }
+      .center-heart {
+        font-size: 1.5rem;
       }
     }
 
@@ -146,15 +174,27 @@
       .greeting {
         font-size: 1rem;
       }
+      .center-heart {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="particles-container" id="particles"></div>
   <div class="hearts-container" id="hearts"></div>
+  
+  <div class="center-hearts">
+    <span class="center-heart">💖</span>
+    <span class="center-heart">💕</span>
+    <span class="center-heart">❤️</span>
+    <span class="center-heart">💞</span>
+    <span class="center-heart">💘</span>
+  </div>
+
   <h1 class="name">Marta</h1>
   <div class="greeting">
-    З найтеплішими вітаннями з днем народження!<br>
+    З найтеплішими вітаннями з іменинами!<br>
     Нехай кожен твій день буде яскравим, як ці серденька,<br>
     наповненим любов'ю, радістю та щастям!
   </div>
@@ -173,7 +213,7 @@
       let leftPos;
       do {
         leftPos = Math.random() * 100;
-      } while (leftPos > 30 && leftPos < 70); 
+      } while (leftPos > 30 && leftPos < 70);
 
       particle.style.left = leftPos + 'vw';
       particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
@@ -193,7 +233,7 @@
       let leftPos;
       do {
         leftPos = Math.random() * 100;
-      } while (leftPos > 30 && leftPos < 70); 
+      } while (leftPos > 30 && leftPos < 70);
 
       heart.style.left = leftPos + 'vw';
       heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
